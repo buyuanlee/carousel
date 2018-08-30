@@ -1,6 +1,5 @@
 var buttons = $('button')
-var n = 0;
-var frequency = buttons.length
+
 
 //遍历button列表，添加点击事件与属性
 for (let i = 0; i < buttons.length; i++) {
@@ -14,8 +13,15 @@ for (let i = 0; i < buttons.length; i++) {
     })
 }
 
+//调用播放函数
+var n = 0;
+var frequency = buttons.length
+playSlide(n % frequency)
+var timerId = setTimer()
+
 //鼠标移入取消轮播(取消setInterval)
 $('.window').mouseenter(function () {
+    window.clearInterval(timerId)
     window.clearInterval(timerId)
 })
 
