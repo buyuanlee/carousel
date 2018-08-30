@@ -1,35 +1,44 @@
 var buttons = $('button')
+var n = 0;
+var frequency = buttons.length
+
+//遍历button列表，添加点击事件与属性
 for (let i = 0; i < buttons.length; i++) {
-    $(buttons[i]).on('click', function (x) {
+    $(buttons[i]).click(function (x) {
         $(images).css({
             transform: 'translate(' + i * -960 + 'px)'
         })
         n = i
-        buttons.eq(n)
-            .addClass('active')
-            .siblings('.active').removeClass('active')
+        console.log(n)
+        btnActive(buttons.eq(n))
     })
 }
 
-
-var n = 0;
-var frequency = buttons.length
-
-var timerId = setInterval(() => {
-    n += 1
-    buttons.eq(n % frequency).trigger('click')
-        .addClass('active')
-        .siblings('.active').removeClass('active')
-}, 2000)
-
+//鼠标移入取消轮播(取消setInterval)
 $('.window').mouseenter(function () {
     window.clearInterval(timerId)
 })
+
+//鼠标移除恢复轮播(开启setInterval)
 $('.window').mouseleave(function () {
-    timerId = setInterval(() => {
-        n += 1
-        buttons.eq(n % frequency).trigger('click')
-            .addClass('active')
-            .siblings('.active').removeClass('active')
-    }, 2000)
+    timerId = setTimer()
 })
+
+//封装class函数
+function btnActive($button) {
+    $button.addClass('active')
+        .siblings('.active').removeClass('active')
+}
+
+//封装点击函数
+function playSlide(i) {
+    buttons.eq(i).trigger('click')
+}
+
+//封装定闹钟函数
+function setTimer() {
+    return setInterval(() => {
+        n += 1
+        playSlide(n % frequency)
+    }, 2000)
+}
