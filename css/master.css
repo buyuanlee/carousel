@@ -1,1 +1,30 @@
-undefined
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+button {
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.images {
+    display: flex;
+    align-items: flex-start;
+    transition: all linear 0.5s;
+}
+
+.window {
+    margin: 20px auto;
+    width: 960px;
+    overflow: hidden;
+}
+
+.active {
+    color: orange;
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, .5);
+}
