@@ -5,11 +5,17 @@
 }
 
 button {
+    border: 1px solid black;
+    border-radius: 5px;
     display: inline-block;
     width: 80px;
     height: 30px;
     align-items: center;
     margin: 0 auto;
+    color: #fff;
+    background: dimgrey;
+    outline:none;
+    cursor: pointer
 }
 
 .images {
