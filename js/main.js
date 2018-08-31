@@ -1,3 +1,4 @@
+//获取对象
 var buttons = $('button')
 
 
@@ -41,7 +42,7 @@ function playSlide(i) {
     buttons.eq(i).trigger('click')
 }
 
-//封装定闹钟函数
+//封装计时器函数
 function setTimer() {
     return setInterval(() => {
         n += 1
