@@ -23,7 +23,6 @@ var timerId = setTimer()
 //鼠标移入取消轮播(取消setInterval)
 $('.window').mouseenter(function () {
     window.clearInterval(timerId)
-    window.clearInterval(timerId)
 })
 
 //鼠标移除恢复轮播(开启setInterval)
